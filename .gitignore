@@ -1,2 +1,18 @@
 /.metadata/
 jdk-17.0.12/
+
+# .NET
+**/bin/
+**/obj/
+
+# Node / Frontend
+node_modules/
+dist/
+build/
+
+# IDE / OS
+.vscode/
+.idea/
+*.log
+.DS_Store
+Thumbs.db
