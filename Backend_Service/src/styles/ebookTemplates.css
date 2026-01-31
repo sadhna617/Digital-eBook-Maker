@@ -1,0 +1,321 @@
+/* ===== BASE EDITOR LAYOUT ===== */
+
+.editor {
+  display: flex;
+  justify-content: center;
+  padding: 60px 20px;
+  min-height: 100vh;
+}
+
+.page {
+  width: 750px;
+  min-height: 900px;
+  padding: 70px 60px;
+  background: white;
+  outline: none;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+  white-space: pre-wrap;
+  line-height: 1.7;
+  border-radius: 12px;
+}
+
+
+.science-modern {
+  background:
+    radial-gradient(circle at 20% 30%, rgba(79,70,229,0.35), transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(190,24,93,0.30), transparent 50%),
+    radial-gradient(circle at 50% 80%, rgba(22,163,74,0.30), transparent 50%),
+    linear-gradient(135deg, #e0e7ff, #f5d0fe);
+  padding: 90px 20px;
+}
+
+/* PAGE */
+.science-modern .page {
+  position: relative;
+  font-family: "Inter", "Manrope", "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+
+  color: #111827;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.92), #ffffff);
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 50px 90px rgba(0,0,0,0.15),
+    inset 0 0 0 1px rgba(255,255,255,0.55);
+
+  padding: 70px 65px;
+}
+
+/* GALAXY SHIMMER */
+.science-modern .page::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  background:
+    linear-gradient(
+      120deg,
+      rgba(79,70,229,0.10),
+      rgba(190,24,93,0.08),
+      rgba(22,163,74,0.10)
+    );
+  pointer-events: none;
+}
+
+/* MAIN TITLE */
+.science-modern h1 {
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  margin-bottom: 45px;
+  background: linear-gradient(90deg, #4338ca, #be185d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* SECTION HEADINGS */
+.science-modern h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-top: 45px;
+  margin-bottom: 14px;
+  color: #3730a3;
+}
+
+/* PARAGRAPHS */
+.science-modern p {
+  margin-bottom: 16px;
+}
+
+/* INPUTS */
+.science-modern input,
+.science-modern textarea {
+  font-family: "Inter", sans-serif;
+  background: rgba(255,255,255,0.96);
+  border: 1px solid rgba(79,70,229,0.45);
+  border-radius: 9px;
+  color: #111827;
+}
+
+.science-modern textarea {
+  box-shadow: inset 0 0 14px rgba(79,70,229,0.18);
+}
+
+/* TEXT ACCENTS */
+.science-modern .page strong {
+  color: #4338ca;
+}
+
+.science-modern .page em {
+  color: #7c3aed;
+}
+
+
+.classic-book {
+  background:
+    linear-gradient(rgba(90, 64, 32, 0.15), rgba(90, 64, 32, 0.15)),
+    url("https://www.transparenttextures.com/patterns/old-paper.png"),
+    #b08968;
+  padding: 80px 20px;
+}
+
+.classic-book .page {
+  font-family: "Libre Baskerville", "Garamond", "Georgia", serif;
+  font-size: 18px;
+  line-height: 2;
+  color: #3b2f2f;
+
+  background:
+    radial-gradient(circle at top, #fff8e7 0%, #f3e5c7 100%);
+  
+  border: 1px solid #a47148;
+  box-shadow:
+    inset 0 0 40px rgba(120, 80, 40, 0.15),
+    0 20px 50px rgba(0,0,0,0.35);
+
+  padding: 90px 80px;
+  border-radius: 6px;
+}
+
+/* ===== TITLE ===== */
+.classic-book h1 {
+  text-align: center;
+  font-size: 34px;
+  letter-spacing: 2px;
+  margin-bottom: 60px;
+  color: #5a3e2b;
+  text-transform: uppercase;
+}
+
+/* ===== CHAPTER HEADINGS ===== */
+.classic-book h2 {
+  font-size: 22px;
+  margin-top: 60px;
+  margin-bottom: 24px;
+  color: #6b4226;
+  border-bottom: 1px solid #c7a27c;
+  padding-bottom: 6px;
+}
+
+/* ===== PARAGRAPHS ===== */
+.classic-book p {
+  margin-bottom: 22px;
+  text-indent: 36px;
+}
+
+/* ===== INPUTS ===== */
+.classic-book input,
+.classic-book textarea {
+  font-family: "Libre Baskerville", serif;
+  background: rgba(255, 248, 231, 0.85);
+  color: #3b2f2f;
+  border: 1px solid #a47148;
+}
+
+.classic-book textarea {
+  box-shadow: inset 0 0 10px rgba(120, 80, 40, 0.2);
+}
+
+/* ===== PAGE AGING EFFECT ===== */
+.classic-book .page::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at bottom right, rgba(120,80,40,0.15), transparent 50%),
+    radial-gradient(circle at top left, rgba(120,80,40,0.12), transparent 50%);
+}
+
+
+
+.minimal-white {
+  background:
+    linear-gradient(180deg, #f8fafc, #eef2f7);
+  padding: 90px 20px;
+}
+
+/* PAGE */
+.minimal-white .page {
+  position: relative;
+
+  font-family: "Inter", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+
+  color: #1f2937;
+  background:
+    linear-gradient(180deg, #ffffff, #fbfbfb);
+
+  border-radius: 14px;
+
+  padding: 70px 65px;
+
+  box-shadow:
+    0 40px 80px rgba(15, 23, 42, 0.08),
+    inset 0 0 0 1px rgba(0,0,0,0.04);
+}
+
+/* SOFT PAPER GRAIN */
+.minimal-white .page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  background-image:
+    radial-gradient(rgba(0,0,0,0.025) 1px, transparent 1px);
+  background-size: 4px 4px;
+  pointer-events: none;
+}
+
+/* MAIN TITLE */
+.minimal-white h1 {
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  margin-bottom: 40px;
+  color: #0f172a;
+}
+
+/* SECTION HEADINGS */
+.minimal-white h2 {
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 40px;
+  margin-bottom: 12px;
+  color: #111827;
+}
+
+/* PARAGRAPHS */
+.minimal-white p {
+  margin-bottom: 15px;
+}
+
+/* INPUTS */
+.minimal-white input,
+.minimal-white textarea {
+  font-family: inherit;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  color: #1f2937;
+}
+
+.minimal-white textarea {
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.06);
+}
+
+/* SUBTLE FOCUS EFFECT */
+.minimal-white input:focus,
+.minimal-white textarea:focus {
+  outline: none;
+  border-color: #94a3b8;
+  box-shadow: 0 0 0 3px rgba(148,163,184,0.2);
+}
+
+/* TEXT EMPHASIS */
+.minimal-white .page strong {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.minimal-white .page em {
+  color: #475569;
+}
+
+/* Full-screen dark backdrop */
+.popup-backdrop {
+  position: fixed;
+  inset: 0;                 /* top:0 right:0 bottom:0 left:0 */
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;            /* VERY IMPORTANT */
+}
+
+/* Popup box */
+.popup-content {
+  background: #ffffff;
+  padding: 24px 28px;
+  border-radius: 12px;
+  width: 420px;
+  max-width: 90%;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+  animation: popupFade 0.25s ease-out;
+}
+
+/* Small animation (optional but nice) */
+@keyframes popupFade {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

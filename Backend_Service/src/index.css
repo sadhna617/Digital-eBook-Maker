@@ -1,0 +1,7 @@
+.hero-section {
+  background: linear-gradient(135deg, #f8f5ff, #ffffff);
+}
+
+.nav-pills .nav-link.active {
+  background-color: #198754;
+}

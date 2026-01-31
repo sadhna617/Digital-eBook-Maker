@@ -1,0 +1,49 @@
+.editor-layout {
+  display: flex;
+  height: 100vh;
+}
+
+.chapters {
+  width: 260px;
+  border-right: 1px solid #ddd;
+  padding: 15px;
+}
+
+.chapter-item {
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.chapter-item.active {
+  background: #7c3aed;
+  color: white;
+}
+
+.editor {
+  flex: 1;
+  padding: 20px;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+}
+
+.primary {
+  background: #7c3aed;
+  color: white;
+  padding: 8px;
+  width: 100%;
+}
