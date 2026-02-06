@@ -1,6 +1,7 @@
 package com.ebook.backend.controller;
 
 import org.springframework.web.bind.annotation.*;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 
 import com.ebook.backend.model.Ebook;
@@ -23,4 +24,5 @@ public class BookController {
     public Ebook createBook(@RequestBody Ebook ebook) {
         return service.create(ebook);
     }
+
 } 

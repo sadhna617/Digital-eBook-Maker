@@ -20,8 +20,6 @@ public class EbookController {
         this.service = service;
     }
 
-    // ---------------- EXISTING CODE (UNCHANGED) ----------------
-
     @PostMapping
     public Ebook create(@RequestBody Ebook ebook) {
         return service.create(ebook);
@@ -43,19 +41,16 @@ public class EbookController {
         return "eBook deleted";
     }
 
-  
     @GetMapping("/my")
     public List<Ebook> getMyEbooks() {
         // TEMP: return all ebooks OR filter later
         return service.getAll();
     }
 
-
     @PostMapping("/create")
     public Ebook createAfterLogin(
             @RequestBody Ebook ebook,
-            Authentication authentication
-    ) {
+            Authentication authentication) {
         return service.create(ebook, authentication.getName());
     }
 
@@ -64,18 +59,31 @@ public class EbookController {
         return service.publish(id);
     }
 
-   
-
     @PutMapping("/{id}/content")
     public Ebook saveContent(
             @PathVariable String id,
-            @RequestBody EbookContentRequest request
-    ) {
+            @RequestBody EbookContentRequest request) {
         Ebook ebook = service.getById(id);
 
         ebook.setTemplateId(request.getTemplateId());
         ebook.setChapters(request.getChapters());
 
-        return service.update(ebook); // ✅ SAFE UPDATE
+        return service.update(ebook); // SAFE UPDATE
+    }
+
+    @PostMapping("/{id}/cover")
+    public Ebook uploadCover(
+            @PathVariable String id,
+            @RequestParam("file") org.springframework.web.multipart.MultipartFile file) throws java.io.IOException {
+        Ebook ebook = service.getById(id);
+
+        if (file != null && !file.isEmpty()) {
+            // Save file as base64 or URL
+            String base64Image = "data:" + file.getContentType() + ";base64," +
+                    java.util.Base64.getEncoder().encodeToString(file.getBytes());
+            ebook.setCoverImageUrl(base64Image);
+        }
+
+        return service.update(ebook);
     }
 }

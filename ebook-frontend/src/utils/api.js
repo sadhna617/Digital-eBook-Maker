@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 // Base URLs (replace with your actual ones)
-const SPRING_BOOT_BASE_URL = 'http://localhost:8081/api';
-const DOTNET_BASE_URL = 'http://localhost:5761/auth';
+const SPRING_BOOT_BASE_URL = 'http://localhost:8081';
+const DOTNET_BASE_URL = 'http://localhost:5261';
 
 // Create axios instance with JWT interceptor
 const api = axios.create({
@@ -29,3 +29,7 @@ export const logoutUser = () => {
     window.location.href = '/login'; // Redirect to login page
   });
 };
+
+
+
+

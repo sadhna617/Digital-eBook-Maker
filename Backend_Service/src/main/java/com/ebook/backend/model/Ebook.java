@@ -16,16 +16,12 @@ public class Ebook {
     private boolean isFree;
     private String coverImageUrl;
 
-    private String createdBy;   // logged-in user
-    private String status;      // DRAFT / PUBLISHED
+    private String createdBy; // logged-in user
+    private String status; // DRAFT / PUBLISHED
 
-    // =========================
-    // 🔹 NEW FIELDS (SAFE)
-    // =========================
-
-    private String templateType;   // PREDEFINED / CUSTOM
-    private String templateId;     // classic-book, science-modern etc.
-    private Design customDesign;   // for custom template
+    private String templateType; // PREDEFINED / CUSTOM
+    private String templateId; // classic-book, science-modern etc.
+    private Design customDesign; // for custom template
 
     private List<Chapter> chapters;
 
@@ -33,9 +29,8 @@ public class Ebook {
     private String category;
     private boolean published;
 
-    // =========================
-    // GETTERS & SETTERS
-    // =========================
+    // 🔹 DEMO CHANGE: Adding a new field WITHOUT touching the Database
+    private Double rating; // 0.0 to 5.0
 
     public String getId() {
         return id;
@@ -133,10 +128,6 @@ public class Ebook {
         this.chapters = chapters;
     }
 
-    // =========================
-    // ✅ FIXED METHODS (IMPORTANT)
-    // =========================
-
     public boolean isPublished() {
         return published;
     }
@@ -151,5 +142,13 @@ public class Ebook {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public Double getRating() {
+        return rating;
+    }
+
+    public void setRating(Double rating) {
+        this.rating = rating;
     }
 }

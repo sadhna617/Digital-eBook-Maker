@@ -1,8 +1,7 @@
 import { useState } from "react";
-import api from "../services/api";
+import authApi from "../services/authApi";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-
 
 function Register() {
   const [username, setUsername] = useState("");
@@ -15,39 +14,41 @@ function Register() {
 
   const navigate = useNavigate();
   const isValidPassword = (password) => {
-  const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,12}$/;
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,12}$/;
     return regex.test(password);
   };
 
   const handleRegister = async (e) => {
-      e.preventDefault();
+    e.preventDefault();
 
-      if (!isValidPassword(password)) {
-        alert("Weak password");
-        return;
-      }
+    if (!isValidPassword(password)) {
+      alert("Weak password");
+      return;
+    }
 
-      const formData = new FormData();
-      formData.append("username", username);
-      formData.append("email", email);
-      formData.append("password", password);
-      formData.append("gender", gender);
-      formData.append("city", city);
+    const formData = new FormData();
+    formData.append("username", username);
+    formData.append("email", email);
+    formData.append("password", password);
+    formData.append("gender", gender);
+    formData.append("city", city);
 
-      if (photo) {
-        formData.append("photo", photo);
-      }
+    if (photo) {
+      formData.append("photo", photo);
+    }
 
-      try {
-        await api.post("/register", formData, {
-          headers: { "Content-Type": "multipart/form-data" }
-        });
+    try {
+      await authApi.post("/register", formData, {
+        headers: { "Content-Type": "multipart/form-data" }
+      });
 
-        alert("Registered successfully");
-        navigate("/login");
-      } catch {
-        alert("Registration failed");
-      }
+      alert("Registered successfully");
+      navigate("/login");
+    } catch (err) {
+      console.error("Registration error:", err);
+      const errorMsg = err.response?.data ? (typeof err.response.data === 'string' ? err.response.data : JSON.stringify(err.response.data)) : "Registration failed";
+      alert(errorMsg);
+    }
   };
 
 
@@ -115,10 +116,10 @@ function Register() {
         </form>
 
         <p className="text-center mb-0">
-            Already have an account?{" "}
-            <Link to="/login" style={{ textDecoration: "none", fontWeight: "500" }}>
-                Login here
-            </Link>
+          Already have an account?{" "}
+          <Link to="/login" style={{ textDecoration: "none", fontWeight: "500" }}>
+            Login here
+          </Link>
         </p>
 
       </div>

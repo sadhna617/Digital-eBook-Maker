@@ -35,18 +35,55 @@ const EbookReader = () => {
         <hr />
 
         <h5>Description</h5>
-        <p>{ebook.description || "This is a dummy ebook description."}</p>
+        <p>{ebook.description || "No description available."}</p>
 
-        <div className="mt-4 p-3 border rounded bg-light" style={{ minHeight: "300px" }}>
-          📖 <b>Dummy eBook Reading Area</b>
-          <br />
-          <br />
-          <p>A full-stack project that demonstrates how to build a modern web application using Spring Boot for the backend and React for the frontend. The backend handles RESTful APIs, business logic, and data access (often with Spring Data JPA and a relational database), while the frontend provides a dynamic user interface built with React. The project typically showcases integration between the two layers using JSON-based API calls, and it's often used as a template for building scalable, full-stack applications.<br></br><br></br>
+        <hr />
 
-          Frontend:-  refers to the part of a website or application that users interact with directly. It includes everything you see on the screen—like buttons, text, images, and layout. Technologies used include HTML, CSS, and JavaScript.<br></br><br></br>
-          Backend:- is the behind-the-scenes part that handles data, business logic, and server operations. It communicates with the frontend and stores/retrieves information from databases. Technologies used include languages like Python, Java, Node.js, and databases like MySQL or MongoDB.
+        {/* CHAPTERS CONTENT */}
+        <div className="mt-4">
+          <h5 className="mb-3">📚 Chapters</h5>
 
-</p>
+          {ebook.chapters && ebook.chapters.length > 0 ? (
+            ebook.chapters.map((chapter, index) => (
+              <div key={index} className="mb-4 p-4 border rounded bg-light">
+                <h6 className="fw-bold text-primary">
+                  {chapter.title || `Chapter ${index + 1}`}
+                </h6>
+                <div
+                  className="mt-3"
+                  style={{
+                    whiteSpace: "pre-wrap",
+                    lineHeight: "1.8",
+                    fontSize: "16px"
+                  }}
+                  dangerouslySetInnerHTML={{ __html: chapter.content || "No content available." }}
+                />
+
+                {/* CHAPTER IMAGES */}
+                {chapter.images && chapter.images.length > 0 && (
+                  <div className="mt-3">
+                    {chapter.images.map((img, imgIndex) => (
+                      <div key={imgIndex} className="text-center my-3">
+                        <img
+                          src={img.url}
+                          alt={img.caption || `Image ${imgIndex + 1}`}
+                          className="img-fluid rounded shadow-sm"
+                          style={{ maxWidth: "100%" }}
+                        />
+                        {img.caption && (
+                          <p className="text-muted small mt-2">{img.caption}</p>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))
+          ) : (
+            <div className="p-4 border rounded bg-light text-center text-muted">
+              <p>No chapters available for this book yet.</p>
+            </div>
+          )}
         </div>
       </div>
     </div>

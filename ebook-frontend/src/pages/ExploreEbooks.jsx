@@ -66,29 +66,13 @@ const ExploreEbooks = () => {
                   {book.author || "Unknown Author"}
                 </p>
 
-                {/* READ + DOWNLOAD */}
-                <div className="d-flex justify-content-between mt-3">
-
-                  {/*  READ → ONLY THIS OPENS READER */}
-                  <button
-                    className="btn btn-outline-primary btn-sm"
-                    onClick={() => navigate(`/ebooks/${book.id}`)}
-                  >
-                    📖 Read
-                  </button>
-
-                  {/* DOWNLOAD */}
-                  <a
-                    href={book.pdfUrl || book.epubUrl}
-                    className="btn btn-outline-success btn-sm"
-                    download
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    ⬇ Download
-                  </a>
-
-                </div>
+                {/* READ BUTTON */}
+                <button
+                  className="btn btn-primary btn-sm w-100"
+                  onClick={() => navigate(`/ebooks/${book.id}`)}
+                >
+                  📖 Read Now
+                </button>
               </div>
             </div>
           </div>

@@ -29,3 +29,12 @@ export const getEbookById = (id) => {
 export const saveEbookContent = (ebookId, data) => {
   return api.put(`/api/ebooks/${ebookId}/content`, data);
 };
+// Upload book cover
+export const uploadBookCover = (ebookId, file) => {
+  const formData = new FormData();
+  formData.append("file", file);
+
+  return api.post(`/api/ebooks/${ebookId}/cover`, formData, {
+    headers: { "Content-Type": "multipart/form-data" },
+  });
+};

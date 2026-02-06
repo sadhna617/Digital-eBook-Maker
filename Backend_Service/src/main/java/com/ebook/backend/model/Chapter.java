@@ -24,12 +24,22 @@ public class Chapter {
         this.pages = pages;
     }
 
-	public String getContent() {
-		return content;
-	}
+    private List<ChapterImage> images;
 
-	public void setContent(String content) {
-		this.content = content;
-	}
-    
-} 
+    public List<ChapterImage> getImages() {
+        return images;
+    }
+
+    public void setImages(List<ChapterImage> images) {
+        this.images = images;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+}

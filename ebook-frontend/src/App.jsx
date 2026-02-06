@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 
 import Navbar from "./components/Navbar";
@@ -27,24 +27,35 @@ import CreateEbookModal from "./components/CreateEbookModal";
 
 function HomePage() {
   const [showModal, setShowModal] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // Check if user is logged in
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    setIsLoggedIn(!!token);
+  }, []);
 
   return (
     <>
       <Hero />
 
-      <div className="text-center my-4">
-        <button
-          className="btn btn-primary"
-          onClick={() => setShowModal(true)}
-        >
-          + Create New Ebook
-        </button>
-      </div>
+      {/* Show Create Button only for logged-in users */}
+      {isLoggedIn && (
+        <div className="text-center my-4">
+          <button
+            className="btn btn-primary btn-lg px-5 rounded-pill shadow-sm"
+            onClick={() => setShowModal(true)}
+          >
+            ✨ Create New Ebook
+          </button>
+        </div>
+      )}
 
       <Features />
       <Examples />
       <Footer />
 
+      {/* Modal */}
       <CreateEbookModal
         show={showModal}
         onClose={() => setShowModal(false)}

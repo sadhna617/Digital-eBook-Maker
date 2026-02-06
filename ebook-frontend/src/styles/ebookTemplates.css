@@ -310,12 +310,55 @@
 
 /* Small animation (optional but nice) */
 @keyframes popupFade {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ================= UTILITIES ================= */
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Animations */
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+/* Interaction Helpers */
+.hover-outline {
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.hover-outline:hover {
+  outline: 2px dashed rgba(59, 130, 246, 0.4); /* Tailwind blue-500 opacity */
+}
+
+/* Form Polish */
+.form-range::-webkit-slider-thumb {
+  background: #3b82f6; 
+}
+.form-control-color {
+  width: 38px;
+  height: 38px;
+  padding: 4px;
 }
